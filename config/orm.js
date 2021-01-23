@@ -1,18 +1,14 @@
 var connection = require("../config/connection.js");
 
-function selectAll() {
+var orm = {
 
-}
+    all: (table, cb) => {},
 
+    create: (table, column, value, cb) => {},
 
-function insertOne() {
-
-}
-
-
-function updateOne() {
-
-
+    update: (table, column, burgerId, cb) => {},
+        
+    delete: (table, column, burgerId, cb) => {}
 }
 
 module.exports = orm;

@@ -1,0 +1,26 @@
+body {
+    background-image: url("../img/3777781.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+}
+
+.jumbotron {
+
+    padding: 0;
+    margin-top: 10%;
+}
+
+
+p {
+    color: beige; 
+    background-color: #24242424;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    width: 75%;
+    border: solid #c1c341 5px;
+    padding: 5px;
+}
+
+h2 {
+    color: white
+}

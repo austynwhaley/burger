@@ -1,1 +1,71 @@
-Setup the index.handlebars to have the template that Handlebars can render onto.
+<div class="container-fluid">  
+    
+        <div class="row">
+
+            <div class="col-5"></div>
+
+            <div class="col-6 addBurger">
+                <div>
+                    <form class="create-update-form" action="/create" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="burger_name"></input><br>
+                            <button class="btn btn-warning btn-lg" style="background-color: #242424; color: white; margin: 10px;">Hunt Burger</button>
+                        </div>
+                </div>
+                </form>
+            </div>
+
+            <div class="col-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3 burgers">
+                <h2 style="color: white">Inventory</h2>
+                <br>
+                <ul>
+                    {{#each burgers}}
+                    {{#unless this.devoured}}
+                    <div class="burgerInv">
+
+                        <p>{{this.burger_name}}</p>
+
+                        <form action="/update/{{this.id}}" method="POST">
+                            <input type="hidden" name="devoured" value="1">
+                            <button type="submit" class="btn btn-warning btn-lg" style="background-color: #242424; color: white;">Devour</button>
+                        </form>
+
+                        <br>
+                    </div>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="col-5"><img src="./assets/img/NASTYPATTY.png" width="700" height="400" alt=""></div>
+
+            <div class="col-3 devouredBurgs">
+
+                <h2 style="color: white">Infected</h2>
+
+                <br>
+
+                <ul>
+                    {{#each burgers}}
+                    {{#if this.devoured}}
+                    <div class="devour">
+
+                    <p>{{this.burger_name}}</p>
+
+                    <form action="/delete/{{this.id}}" method="POST">
+                        <button type="submit" class="btn btn-warning btn-lg" style="background-color: #242424; color: white;">Cure</button>
+                    </form>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            
+            </div>
+
+        </div>
+    
+    </div>
