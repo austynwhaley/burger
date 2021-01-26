@@ -1,24 +1,24 @@
-var connection = require("../config/connection.js");
-
+var connection = require("./connection.js");
+//Select All ORM
 var orm = {
-    all: (table, cb) => {
+    all: function(table, cb) {
+        var queryString = "SELECT * FROM ??;";
+        connection.query(queryString, [table], function(err, res) {
 
-        // console.log(table);
-        var queryString = "SELECT * FROM " + table + ";";
-        connection.query(queryString, (err, result) => {
-
-            if (err) { throw err;} cb(result);
+            if (err) throw err; cb(res);
         });
     },
-
-    create: (table, column, value, cb) => {},
-
+    //Insert 
+    create: function(table, col, val, cb) {
+    var queryString = "INSERT INTO ?? (??, devoured) VALUES (?, FALSE) ;"
+        connection.query(queryString, [table, col, val], function(err, res){
+        if (err) throw err; cb(res);
+    });
+    },
+    //Update
     update: (table, column, burgerId, cb) => {},
-
+    //Delete
     delete: (table, column, burgerId, cb) => {}
-        
-    
-    
-}
-
+};
+//Exports ORM
 module.exports = orm;
