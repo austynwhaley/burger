@@ -16,7 +16,13 @@ var orm = {
     });
     },
     //Update
-    update: (table, column, burgerId, cb) => {},
+    update: function(col, id, cb) {
+        var queryString = "UPDATE burgers SET devoured='1' WHERE " + id + ";";
+        
+            connection.query(queryString, [id], function(err, res) {
+            if (err) throw err; cb(res);
+        });
+    },
     //Delete
     delete: (table, column, burgerId, cb) => {}
 };

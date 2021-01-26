@@ -25,8 +25,15 @@ router.post("/add", function (req, res) {
 
 //Update
 router.post("/update/:id", function (req, res) {
-     
+    var burgerId = "id = " + req.params.id;
+    burger.update(
+        
+        { devoured: req.body.devoured }, 
 
+        burgerId, function () { 
+            
+        res.redirect("/");
+    });
 });
 //Delete
 router.post("/delete/:id", function (req, res) { 
