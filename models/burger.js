@@ -8,27 +8,24 @@ var burger = {
     },  
 
     create: function (name, cb) {
-        orm.create("burgers", "burger_name", name, function (res) {
-            console.log(res)
-            cb(res);
-        });
+      orm.create("burgers", "burger_name", name, function (res) {
+        console.log(res)
+        cb(res);
+      });
     },
 
     update: function(col, id, cb) {
       orm.update(col, id, function(res) {
-          console.log(res)
-          cb(res);
-      });
-  },
-    delete: function(condition, cb) {
-      orm.delete("burgers", condition, function(res) {
-  
+        console.log(res)
         cb(res);
-  
-      });
-    }
-
-    
+    });
+  },
+    delete: function(id, cb) {
+      orm.delete(id, function(res) {
+      console.log(res)
+      cb(res);
+    });
+  }    
 };
 
 module.exports = burger;

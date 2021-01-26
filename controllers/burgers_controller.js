@@ -31,14 +31,18 @@ router.post("/update/:id", function (req, res) {
         { devoured: req.body.devoured }, 
 
         burgerId, function () { 
-            
+
         res.redirect("/");
     });
 });
 //Delete
 router.post("/delete/:id", function (req, res) { 
 
-    
+    var burgerId = "id = " + req.params.id;
+
+    burger.delete(burgerId, function () {
+        res.redirect("/");
+    });
 });
 
 module.exports = router;         

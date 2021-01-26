@@ -18,13 +18,19 @@ var orm = {
     //Update
     update: function(col, id, cb) {
         var queryString = "UPDATE burgers SET devoured='1' WHERE " + id + ";";
-        
+
             connection.query(queryString, [id], function(err, res) {
             if (err) throw err; cb(res);
         });
     },
     //Delete
-    delete: (table, column, burgerId, cb) => {}
+    delete: function(id, cb) {
+        var queryString = "DELETE FROM burgers WHERE " + id + ";";
+        connection.query(queryString, [id], function(err, res) {
+        if (err) throw err; cb(res);
+        });
+    }
+
 };
 //Exports ORM
 module.exports = orm;
