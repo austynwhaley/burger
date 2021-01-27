@@ -8,7 +8,7 @@ var orm = {
             if (err) throw err; cb(res);
         });
     },
-    //Insert 
+    //Create
     create: function(table, col, val, cb) {
     var queryString = "INSERT INTO ?? (??, devoured) VALUES (?, FALSE) ;"
         connection.query(queryString, [table, col, val], function(err, res){
@@ -30,7 +30,6 @@ var orm = {
         if (err) throw err; cb(res);
         });
     }
-
 };
 //Exports ORM
 module.exports = orm;
