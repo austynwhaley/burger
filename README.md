@@ -7,12 +7,12 @@ Copyright (c) [2020] [Austyn Whaley]
 ---
 
 
-![Screenshot](public\assets\img\ZBSS.png)
+![Screenshot](ZBSS.png)
 
 ### Table of Contents
 
 
-- [Link to Application](#https://secret-forest-42388.herokuapp.com/)
+- [Link to Application](https://secret-forest-42388.herokuapp.com/)
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
