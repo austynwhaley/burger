@@ -1,8 +1,12 @@
 var express = require("express");
                    
 var burger = require("../models/burger.js");
+
+var compression = require('compression')
           
 var router = express.Router();
+
+app.use(compression())
 
 
 router.get("/", function (req, res) {
@@ -44,5 +48,7 @@ router.post("/delete/:id", function (req, res) {
         res.redirect("/");
     });
 });
+
+
 
 module.exports = router;         
